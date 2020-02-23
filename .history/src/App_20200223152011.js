@@ -8,14 +8,14 @@ function App() {
   const [temperature, settemperature] = useState(0)
   const [Entercity, setEntercity] = useState('')
 
-  useEffect((e) => {
-    
+  useEffect(() => {
+   
     handleit(Entercity);
   }, []);
 
-  const handleit=(cityname,)=>
+  const handleit=(cityname,e)=>
   {
-       
+       e.preventDefault();
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=6fe84926b061ee8a1bdcb83831837575`)
     .then(res=>res.json())
     .then(result=>

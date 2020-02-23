@@ -6,29 +6,24 @@ function App() {
   const [weather, setweather] = useState('loading weather...')
   const [city, setCity] = useState('Enter City')
   const [temperature, settemperature] = useState(0)
-  const [Entercity, setEntercity] = useState('')
+  const [Entercity, setEntercity] = useState("")
 
-  useEffect((e) => {
-    
+  useEffect(() => {
+   
     handleit(Entercity);
   }, []);
 
-  const handleit=(cityname,)=>
+  const handleit=(cityname)=>
   {
-       
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=6fe84926b061ee8a1bdcb83831837575`)
     .then(res=>res.json())
     .then(result=>
       {
-         console.log("values are ",result)
-         settemperature(~~result.main.temp-273)
+         
+         settemperature(result.main.temp)
          setCity(result.name)
          setweather(result.weather[0].main)
         
-      })
-
-      .catch((error) => {
-        console.log("Error")
       })
   }
   return (
@@ -51,9 +46,8 @@ function App() {
                                         <span className="deg">0</span>
                                         <a href="javascript:;"><span className="temp-type">C</span></a>
                   </p>
-                  <input placeholder="City Name" value={Entercity}  onChange={e=>setEntercity(e.target.value)}></input>
-                  
-                   <button onClick={()=>handleit(Entercity)}>CLICK ME</button>
+                  <input placeholder="City Name" value={Entercity} type="text" onChange={(e)=>setEntercity(e.target.value)}></input>
+                   <button onClick={handleit(Entercity)}>GET IT</button>
                 </div>
               </div>
               

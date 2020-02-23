@@ -9,7 +9,7 @@ function App() {
   const [Entercity, setEntercity] = useState('')
 
   useEffect((e) => {
-    
+    e.preventDefault();
     handleit(Entercity);
   }, []);
 
