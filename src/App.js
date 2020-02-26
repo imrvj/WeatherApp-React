@@ -16,7 +16,7 @@ function App() {
   const handleit=(cityname,)=>
   {
        
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=6fe84926b061ee8a1bdcb83831837575`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&APPID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
     .then(res=>res.json())
     .then(result=>
       {
